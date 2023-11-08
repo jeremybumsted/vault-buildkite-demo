@@ -11,7 +11,19 @@ steps:
               method: "approle"
               role-id: "${VAULT_ROLE_ID}"
     - wait
-
+    
+    - label: ":shipit: Get secret from mountpath kv/ :tm: "
+      command: ./scripts/secret.sh
+      agents:
+        queue: vault
+      plugins:
+        - vault-secrets#v2.0.0:
+            server: "http://localhost:8200"
+            path: kv/buildkite
+            auth:
+              method: "approle"
+              role-id: "${VAULT_ROLE_ID}"
+              
     - label: ":vault: :bomb: clean up"
       command: docker compose down
       agents:
