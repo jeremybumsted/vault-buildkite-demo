@@ -9,5 +9,3 @@ path "secret/metadata/buildkite/*" {
 path "kv/buildkite/*" {
   capabilities = ["read", "list"]
 }
-
-
