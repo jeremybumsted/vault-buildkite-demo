@@ -4,12 +4,28 @@ steps:
       agents:
         queue: vault
       plugins:
-        - vault-secrets#v1.1.0:
+        - vault-secrets#v2.2.0:
             server: "http://localhost:8200"
             path: secret/buildkite
             auth:
               method: "approle"
               role-id: "${VAULT_ROLE_ID}"
+  
+    - wait
+
+    - label: ":oidc: Deploy the thing (OIDC) :tm:"
+      command: ./scripts/deploy.sh
+      agents:
+        queue: vault
+      plugins:
+        - vault-secrets#v2.2.0:
+          server: "http://localhost:8200"
+          path: secret/buildkite
+          auth:
+            method: jwt
+            jwt-role: buildkite
+            jwt-env: "VAULT_JWT"
+
     - wait
     
     - label: ":shipit: Get secret from mountpath kv/ :tm: "
@@ -17,7 +33,7 @@ steps:
       agents:
         queue: vault
       plugins:
-        - vault-secrets#v2.0.0:
+        - vault-secrets#v2.2.0:
             server: "http://localhost:8200"
             path: kv/buildkite
             auth:
