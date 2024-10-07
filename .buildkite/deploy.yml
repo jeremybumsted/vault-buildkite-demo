@@ -4,7 +4,7 @@ steps:
       agents:
         queue: vault
       plugins:
-        - vault-secrets#v2.1.1:
+        - vault-secrets#v2.2.0:
             server: "http://localhost:8200"
             path: secret/buildkite
             auth:
@@ -18,7 +18,7 @@ steps:
       agents:
         queue: vault
       plugins:
-        /Users/jeremy/dev/plugins/vault-secrets-buildkite-plugin#fix-jwt-auth:
+        - vault-secrets#v2.2.0:
           server: "http://localhost:8200"
           path: secret/buildkite
           auth:
@@ -33,7 +33,7 @@ steps:
       agents:
         queue: vault
       plugins:
-        - vault-secrets#v2.1.1:
+        - vault-secrets#v2.2.0:
             server: "http://localhost:8200"
             path: kv/buildkite
             auth:
