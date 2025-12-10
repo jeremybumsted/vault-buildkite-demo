@@ -1,6 +1,6 @@
 services:
   vault-svc:
-    image: vault:1.13.1
+    image: vault:1.13.3
     healthcheck: 
         test: wget http:127.0.0.1:8200/v1/sys/health
         interval: 2s
