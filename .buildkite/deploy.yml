@@ -34,9 +34,10 @@ steps:
       agents:
         queue: vault
       plugins:
-        - vault-secrets#v1.1.0:
+      - file:///Users/jeremy/dev/plugins/vault-secrets-buildkite-plugin#jb/multiline-fix:
             server: "http://localhost:8200"
             path: kv/buildkite/vault-buildkite-demo
+            no-sed: true
             auth:
               method: "approle"
               role-id: "${VAULT_ROLE_ID}"
