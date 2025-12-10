@@ -34,7 +34,7 @@ steps:
       agents:
         queue: vault
       plugins:
-        - vault-secrets#v2.2.0:
+        - vault-secrets#v1.1.0:
             server: "http://localhost:8200"
             path: kv/buildkite/vault-buildkite-demo
             auth:
