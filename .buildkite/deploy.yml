@@ -14,6 +14,7 @@ steps:
     - wait
 
     - label: ":disguised_face: Deploy the thing (with OIDC) :tm:"
+      skip: true
       command: ./scripts/deploy.sh
       agents:
         queue: vault
