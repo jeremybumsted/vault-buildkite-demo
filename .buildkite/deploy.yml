@@ -36,7 +36,7 @@ steps:
       plugins:
         - vault-secrets#v2.2.0:
             server: "http://localhost:8200"
-            path: kv/buildkite
+            path: kv/buildkite/vault-buildkite-demo
             auth:
               method: "approle"
               role-id: "${VAULT_ROLE_ID}"
