@@ -13,17 +13,17 @@ export VAULT_TOKEN="${VAULT_DEV_ROOT_TOKEN_ID:-"buildkite-is-cool"}"
 export VAULT_ADDRESS="http://127.0.0.1:8220"
 
 # enable secret mountpath kv
-vault secrets enable kv
+vault secrets enable kv-v2
 
 # put some data in the kv store
 
 vault kv put secret/buildkite/vault-buildkite-demo/env some_value="alpacas" && sleep 1
-vault kv put kv/buildkite/vault-buildkite-demo/env artifactory_user="test" && sleep 1
+vault kv patch secret/buildkite/vault-buildkite-demo/env artifactory_user="test" && sleep 1
 #vault kv put kv/buildkite/vault-buildkite-demo/env multiline_secret="\"something or other \
 #    comment\" another=\"more \
 #    info\" date=\"2020482983\" \
 #  end=\"finished\"" && sleep 1
-vault kv put kv/buildkite/vault-buildkite-demo/env license='"something or other \
+vault kv patch secret/buildkite/vault-buildkite-demo/env license='"something or other \
   comment" another="more \
   info" date="2020482983" \
   end="finished"' && sleep 1
