@@ -36,7 +36,7 @@ steps:
       plugins:
       - file:///Users/jeremy/dev/plugins/vault-secrets-buildkite-plugin#jb/multiline-fix:
             server: "http://localhost:8200"
-            path: kv/buildkite/vault-buildkite-demo
+            path: secret/buildkite/vault-buildkite-demo
             output: json
             auth:
               method: "approle"
