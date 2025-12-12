@@ -34,7 +34,7 @@ steps:
       agents:
         queue: vault
       plugins:
-      - file:///Users/jeremy/dev/plugins/vault-secrets-buildkite-plugin#jb/multiline-fix:
+      - file:///Users/jeremy/dev/plugins/vault-secrets-buildkite-plugin#sup-5798-json-secret-output:
             server: "http://localhost:8200"
             path: secret/buildkite/vault-buildkite-demo
             output: json
